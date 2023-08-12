@@ -2294,7 +2294,11 @@
     hiddenInput.setAttribute("value", selectedCountry.countryISO);
   }
   function closeDropdown() {
-    dropdownToggle.dispatchEvent(new Event(EVENTS.MOUSEUP));
+    if ("ontouchstart" in window) {
+      dropdownToggle.dispatchEvent(new Event(EVENTS.CLICK));
+    } else {
+      dropdownToggle.dispatchEvent(new Event(EVENTS.MOUSEUP));
+    }
     dropdownToggle.focus();
   }
   function handleSelectItem(item) {

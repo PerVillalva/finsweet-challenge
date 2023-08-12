@@ -74,7 +74,13 @@ function updateInformation(selectedCountry: CountryData) {
 
 // Close dropdown menu and focus the dropdown toggle button
 export function closeDropdown() {
-  dropdownToggle.dispatchEvent(new Event(EVENTS.MOUSEUP));
+  if ('ontouchstart' in window) {
+    // On mobile devices, trigger a click event
+    dropdownToggle.dispatchEvent(new Event(EVENTS.CLICK));
+  } else {
+    // On desktop, trigger a mouseup event
+    dropdownToggle.dispatchEvent(new Event(EVENTS.MOUSEUP));
+  }
   dropdownToggle.focus();
 }
 
