@@ -3,6 +3,7 @@
   "compilerOptions": {
     "rootDir": ".",
     "baseUrl": "./",
+    "lib": ["es2015", "DOM"],
     "paths": {
       "$utils/*": ["src/utils/*"]
     },
